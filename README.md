@@ -6,14 +6,17 @@ This repository contains my master thesis work on predicting protein binding sit
 ## Goal
 Develop and evaluate models that predict binding residues from amino acid sequences without using structural data.
 
-## Current Status
-Work in progress.
-
 ## Planned Work
 - generate protein embeddings using esm2 protein language model.
 - generate ligand embedddings using FARM method.
 - find an efficient architecture to train a predictor.
 - Evaluation
 
-## Notes
-This repository will be updated as the project progresses.
+## Data Source
+
+This project uses the LP-PDBBind dataset derived from the PDBbind database.
+
+Original data can be obtained from:
+[https://github.com/THGLab/LP-PDBBind/]
+
+In this work, the provided CSV file was used as the starting point for preprocessing and model development.
