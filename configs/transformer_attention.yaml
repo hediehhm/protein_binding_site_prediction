@@ -1,0 +1,48 @@
+# ============================================================
+# Model & Training Configuration
+# ============================================================
+
+# ---------------------------
+# Data paths
+# ---------------------------
+data:
+  train_csv: "data/train_smiles_codes.csv"
+  val_csv: "data/val_smiles_codes.csv"
+  esm_train_dir: "data/esm2_embeddings"
+  esm_val_dir: "data/esm2_embeddings_val"
+  lig_train_file: "data/atom_level_embeddings.pkl"
+  lig_val_file: "data/atom_level_embeddings_val.pkl"
+  labels_train: "data/labels_dict.pt"
+  labels_val: "data/labels_dict_val.pt"
+
+# ---------------------------
+# Model architecture
+# ---------------------------
+model:
+  esm_dim: 1280          # ESM2 embedding dimension
+  lig_dim: 768           # Ligand embedding dimension
+  num_layers: 4
+  num_heads: 8
+  ff_dim: 2048
+  dropout: 0.1
+
+# ---------------------------
+# Training settings
+# ---------------------------
+training:
+  batch_size: 8
+  num_epochs: 50
+  learning_rate: 1e-4
+  weight_decay: 1e-3
+  device: "cuda"   # or "cpu"
+  save_dir: "results/"
+  log_interval: 1
+
+# ---------------------------
+# Loss settings
+# ---------------------------
+loss:
+  use_bce: true
+  use_tversky: true
+  tversky_alpha: 0.2
+  tversky_beta: 0.8
